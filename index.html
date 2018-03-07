@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
+        <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
+        <link rel="stylesheet" type="text/css" href="vendors/css/animate.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/queries.css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400" rel="stylesheet">
+
+        <title>Hinter</title>
+    </head>
+        <body> 
+			<script>var RESULT = ["20_34", 50, "Middle", 2, 40, 30, 50, 0, 1, 50, 0];</script>
+            <header id="home">
+                <nav>
+                    <div class="row">
+                         <img src="resources/img/nj-largeseal.png" alt="signature" class="signature">
+                            <ul class="main-nav">
+                                <li><a href="index.html">Home</a></li>
+                            </ul>
+                    </div>
+                </nav>
+                    <div class="main-text-box">
+                        <div class="row front-page-title" >
+                            <p>New Jersey</p>
+                            <p>Find the perfect area for your new home
+                            </p>
+                        </div>
+
+                </div>
+            </header>
+
+            <section class="section-query" id="section-query">
+                <div class="row">
+                    <form method="post" action="submit.php"class="query-form" id="user_pref">
+                        <div class="preferences-box col span-1-of-5">
+                            <div class="query-title">
+                                <h6>Preferences</h6><br>
+                            </div>
+                            <label for="pref-queries">Select by County: </label>
+                                <div class="row">
+                       
+                                            <select id="county-pref" type="text" name="counties" list="countyname" required>
+                                            <option value="Atlantic">Atlantic County</option>
+                                            <option value="Bergen">Bergen County</option>
+                                            <option value="Burlington">Burlington County</option>
+                                            <option value="Camden">Camden County</option>
+                                            <option value="Cape May">Cape May County</option>
+                                            <option value="Cumberland">Cumberland County</option>
+                                            <option value="Essex" selected>Essex County</option>
+                                            <option value="Gloucester">Gloucester County</option>
+                                            <option value="Hudson">Hudson County</option>
+                                            <option value="Hunterdon">Hunterdoon County</option>
+                                            <option value="Mercer">Mercer County</option>
+                                            <option value="Middlesex">Middlesex County</option>
+                                            <option value="Monmouth">Monmouth County</option>
+                                            <option value="Morris">Morris County</option>
+                                            <option value="Ocean">Ocean County</option>
+                                            <option value="Passaic">Passaic County</option>
+                                            <option value="Salem">Salem County</option>
+                                            <option value="Somerset">Somerset</option>
+                                            <option value="Sussex">Sussex County</option>
+                                            <option value="Union">Union County</option>
+                                            <option value="Warren">Warren County</option>
+                                            </select>
+                                        
+                                </div>
+                            <br>
+                            <label for="demo-option">Age demographics</label>
+                            <select class="demo-option" name="demo-option" id="demo-option" >
+								<option value="-1" >No Preference</option>
+                                <option value="19_Under">19 and under</option>
+                                <option value="20_34" selected>20 - 34</option>
+                                <option value="35_54">35 - 54</option>
+                                <option value="55_Over">55 and over</option>
+                            </select>
+                            <br>
+                            <br>
+                            
+                            <label for="population-option">Population density</label>
+                            <select class="population-option" name="population-option" id="population-option">
+								<option value="-1" >No Preference</option>
+                                <option value="50000" >under 50k</option>
+                                <option value="75000" >50k - 75k</option>
+                                <option value="110000" selected>75k - 110k</option>
+                                <option value="175000" >110k - 175k</option>
+                                <option value="250000" >175k - 250k</option>
+                                <option value="1000000" >250k+ </option>
+                            </select>
+                            <br>
+                            <br>
+                            
+                            <label for="family-option">Family friendly</label>
+                            <select class="family-option" name="family-option" id="family-option">
+								<option value="-1" >No Preference</option>
+                                <option value="Total_Families" selected>family oriented</option>
+                                <option value="Total_Non_Families" >Not family oriented</option>
+                            </select>
+                            <br>
+                            <br>
+                            
+                            <label for="education-option">Education preference</label>
+                            <select class="education-option" name="education-option" id="education-option" onchange="showEducation(this.value)">
+								<option value="-1" >No Preference</option>
+                                <option value="1" selected>Public Schools</option>
+                                <option value="2" >Private Schools</option>
+                            </select>
+
+                            <br>
+                            <br>
+                            
+                            <label for="male-female-option">Male : Female ratio </label><br>
+                            <select class="male-female-option" name="male-female-option" id="make-female-range" onchange="showMaleFemale(this.value)">
+                                <option value="-1" >No Preference</option>
+								<option value="Equals">Male = Female</option>
+                                <option value="Female_Perc" selected>More Females</option>
+                                <option value="Male_Perc" >More Males</option>
+                            </select>
+                            
+                            <br>
+                            <br>
+                            
+                            <label for="safety-option">Safety </label><br>
+                            <select class="safety-option" name="safety-option" id="safety-option">
+                                <option value="-1" >No Preference</option>
+								<option value="yes" selected>Yes, show me safer neighborhoods.</option>
+                            </select>
+                            <br>
+                            <br>
+                            
+                            <div class="query-title">
+                                <h6>Affordability</h6><br>
+                            </div>
+                            
+                            <label>Median Monthly Cost</label>
+                            <select name="monthly-cost-option" id="monthly-cost-option">
+								<option value="-1" >No Preference</option>
+                                <option value="1" > less than $1,000</option>
+                                <option value="2" selected>$1,000 - $2,000</option>
+                                <option value="3" >$2,000 - $3,000</option>
+                                <option value="4" >more than $3,000</option>
+                            </select>
+                            <br>
+                            
+                            <label>House Value</label>
+                            <select name="houseval-option">
+								<option value="-1" >No Preference</option>
+                                <option value="1" > less than $100K</option>
+                                <option value="2" selected>$100K - $250K</option>
+                                <option value="3" >$250K - $500K</option>
+                                <option value="4" >$500K - $750K</option>
+                                <option value="5" >$750K - $1M</option>
+                                <option value="6" >$1M plus</option>
+                            </select>
+                            <br>
+                        
+                            
+                            <label>Average Income</label>
+                            <select name="income-option">
+								<option value="-1" >No Preference</option>
+                                <option value="1" >less than $50k</option>
+                                <option value="2" selected>$50K - $100K</option>
+                                <option value="3" >$100K - $150K</option>
+                                <option value="4" >$150K - $200K</option>
+                                <option value="5" >$200K - 250K</option>
+                                <option value="6" >$250K plus</option>
+                            </select>
+                            <br>
+                            <br>
+                            
+                            <input id="Search" type="submit" value="Search!">
+                        </div>
+                    </form>
+                    <div class="preferences-box col span-3-of-5" >
+                        <div class="instructions">
+                            <div class="row">
+                              <h6>To search for your new home</h6>
+								<p> -Our complex City-Chooser will help you get started on finding your new home by choosing a recomended location for you by your preferences.</p>
+								<br>
+                                <p> -To get a recomended city select the preferences in the left pane and click "SEARCH!".</p>
+                                <br>
+                                <br>
+                            </div>
+                            <div class="row realtor">
+                              <h6>For Realtors - to add new information to the database</h6>
+                                <p> -If you would like to add a place for sale please fill out the information on the right. The data will be added to our database, but not yet officially posted until an administrator has approved it.</p>
+								<br>
+                                <p> -Click on "REVIEW! to view pending house listings</p>
+                            </div>
+                        </div>
+                        
+                        <div class ="row query_results">
+                          
+                            <p><span id="display"></span></p>
+                        </div>     
+                    </div>
+                    <div class="preferences-box add-box col span-1-of-5">
+                        <h6>Add New Housing Information</h6>
+                        <br>
+                        <p>for realtors only.</p>
+                        <br>
+                        <form method="post" action="add.php">
+                            <label for="address">Realtor ID number:</label>
+                            <input type="text" name="realtorID" id="realtorID" required>
+                            <br>
+                            <br>
+                            <label for="address">Street Address:</label>
+                            <input type="text" name="address" id="address" required>
+                            <br>
+                            <br>
+                            <label for="town">City:</label>
+                            <input type="text" name="town" id="town" required>
+                            <br>
+                            <br>
+                            <label for="zip">Zip Code: </label>
+                            <input type="text" name="zip" id="zip" required>
+                            <br>
+                            <br>
+                            <label for="price">House Price: </label>
+                            <input type="text" name="price" id="price" required>
+                            <br>
+                            <br>
+                            <label for="bed">Number of Bedrooms: </label>
+                            <input type="text" name="beds" id="beds" required>
+                            <br>
+                            <br>
+                            <label for="bath">Number of Bathrooms: </label>
+                            <input type="text" name="baths" id="baths" required>
+                            <br>
+                            <input id="add" type="submit" value="ADD!">
+                            <br>
+                            <br>
+                        </form>
+                            <p>Click below to review pending house listings!</p>
+						<form action="review.php">
+							<input type="submit" value="REVIEW!" />
+						</form>
+                    </div>
+                </div>
+
+            </section>
+            
+            <!--<div id="map-canvas"></div>-->
+            
+
+
+    <footer>
+        <div class="row">
+            <p>This website was contructed using HTML5, CSS3, and PHP.<br>
+            Copyright &copy; 2017 Vladislav Tsoy, Nick Knight, and Vyacheslav Agarkov. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="vendors/js/typer.js"></script>
+        <script src="https://www.jsdelivr.com/package/npm/respond.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/selectivizr@1.0.3/selectivizr.min.js"></script>
+        <script src="vendors/js/jquery.waypoints.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script language="JavaScript">
+            function showInput() {
+                document.getElementById('display').innerHTML = document.getElementById("user_pref").value;
+                return false;
+            }
+        </script>
+            
+            
+            
+		<!--<script src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFclVV6QDJlGXKM4CZ1FCRJwbAE9jrXjg"></script>-->
+   <!--      <script type="text/javascript">
+            function showSafety(newValue){
+	           document.getElementById("safety-range").innerHTML=newValue;
+                
+                if (str == "") {
+                document.getElementById("display_safety").innerHTML = "";
+                return;
+            } else { 
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("display_safety").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET","safetyquery.php?q="+str,true);
+                xmlhttp.send();
+            }
+            }
+            function showWeather(newValue){
+	           document.getElementById("weather-range").innerHTML=newValue;
+                
+                if (str == "") {
+                document.getElementById("display_weather").innerHTML = "";
+                return;
+            } else { 
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("display_weather").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET","weatherquery.php?q="+str,true);
+                xmlhttp.send();
+            }
+            }
+            function showCost(newValue){
+	           document.getElementById("cost-range").innerHTML=newValue;
+                
+                if (str == "") {
+                document.getElementById("display_cost").innerHTML = "";
+                return;
+            } else { 
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("display_cost").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET","costquery.php?q="+str,true);
+                xmlhttp.send();
+            }
+            }
+            function showIncome(newValue, str){
+	           document.getElementById("income-range").innerHTML=newValue;
+                
+                var x = document.getElementById("myRange").value;
+                
+                if (str == "") {
+                document.getElementById("display_income").innerHTML = "";
+                return;
+                } else { 
+                    if (window.XMLHttpRequest) {
+                        // code for IE7+, Firefox, Chrome, Opera, Safari
+                        xmlhttp = new XMLHttpRequest();
+                    } else {
+                        // code for IE6, IE5
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("display_income").innerHTML = this.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET","incomequery.php?q="+str,true);
+                    xmlhttp.send();
+                }
+            }
+            
+            function showHousePeople(newValue){
+	           document.getElementById("house-people-range").innerHTML=newValue;
+                
+                if (str == "") {
+                document.getElementById("display_house-people").innerHTML = "";
+                return;
+            } else { 
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("display_house-people").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET","house-people-query.php?q="+str,true);
+                xmlhttp.send();
+            }
+        }
+        </script>  -->
+   <!--     <script type="text/javascript">
+            function loaddata(){
+                var pop = document.getElementById( "population-option" );
+                
+                if(pop){
+                    $.ajax({
+                        type: 'post',
+                        url: 'submit.php',
+                        data: {
+                            user_name:pop,
+                        },
+                        success: function (response) {
+                           // We get the element having id of display_info and put the response inside it
+                           $( '#display_info' ).html(response);
+                        }
+                    });
+                } else {
+                  $( '#display_info' ).html("Please Enter Some Words");
+                }
+            }
+
+            </script> -->     
+   <!--     <script>
+            
+        function showPop(str) {
+            if (str == "") {
+                document.getElementById("display_pop").innerHTML = "";
+                return;
+            } else { 
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("display_pop").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET","popquery.php?q="+str,true);
+                xmlhttp.send();
+            }
+        }
+        </script>  -->        
+   <!--      <script> 
+            
+            
+       function showDem(str) {
+            if (str == "") {
+                document.getElementById("display_dem").innerHTML = "";
+                return;
+            } else { 
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("display_dem").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET","demquery.php?q="+str,true);
+                xmlhttp.send();
+            }
+        }
+            </script>  -->    
+   <!--    <script>
+            
+        function showEducation(str) {
+            if (str == "") {
+                document.getElementById("display_education").innerHTML = "";
+                return;
+            } else { 
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("display_education").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET","edquery.php?q="+str,true);
+                xmlhttp.send();
+            }
+        }
+        </script>  -->
+   <!--     <script>
+            
+        function showPublic(str) {
+            if (str == "") {
+                document.getElementById("display_education").innerHTML = "";
+                return;
+            } else { 
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("display_education").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET","publicquery.php?q="+str,true);
+                xmlhttp.send();
+            }
+        }
+        </script> -->      
+   <!--       <script>
+            
+            function showMaleFemale(str){
+                if (str == "") {
+                document.getElementById("display_male-female").innerHTML = "";
+                return;
+            } else { 
+                if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {
+                    // code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("display_male-female").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET","male-female-query.php?q="+str,true);
+                xmlhttp.send();
+            }
+            }
+        </script>  -->
+    </body>
+		<!--<script>
+			var map;
+			var count = 0;
+			var geocoder = new google.maps.Geocoder();
+			var markers = []; // Create a marker array to hold your markers
+
+			function setMarkers(locations) {
+				locations = JSON.parse(localStorage.getItem('places'));
+				alert(locations);
+				for (var i = 0; i < locations.length; i++) {
+					var place = locations[i];
+					var myLatLng = new google.maps.LatLng(place[1], place[2]);
+					var marker = new google.maps.Marker({
+						position: myLatLng,
+						map: map,
+						animation: google.maps.Animation.DROP,
+						title: place[0],
+						zIndex: place[3]
+					});
+					//window.alert(places + " WE ARE IN SETM");
+					// Push marker to markers array
+					markers.push(marker);
+				}
+			}
+
+			function reloadMarkers() {
+				// Reload the places.
+				places = JSON.parse(localStorage.getItem('places'));
+				
+				alert(places);
+				// Loop through markers and set map to null for each
+				for (var i=0; i<markers.length; i++) {
+				 
+					markers[i].setMap(null);
+				}
+				
+				// Reset the markers array
+				markers = [];
+				
+				// Call set markers to re-add markers
+				setTimeout(setMarkers, 3000, places);
+			}
+			
+			function addGeoMarkerCount() {
+				var newPlace;
+				var lat, lon;
+				var address = document.getElementById('County').value + ", NJ";
+				geocoder = new google.maps.Geocoder();
+				
+				//window.alert(address);
+				
+				geocoder.geocode( { 'address': address}, function(results, status) {
+				  if (status == google.maps.GeocoderStatus.OK)
+				  {
+					count++;
+					lat = results[0].geometry.location.lat();
+					lon = results[0].geometry.location.lng();
+					newPlace = [address, lat, lon, count];
+
+					places.push(newPlace);
+					localStorage.setItem('places',  JSON.stringify(places));
+
+					alert(address + " added successfully!");
+					reloadMarkers();
+				  }
+				});
+				//window.alert("FUCKERL " + places);
+				reloadMarkers();
+			}
+			
+			function addGeoMarkerCit(){
+				var newPlace;
+				var lat, lon;
+				var address = document.getElementById('City').value + ", NJ";
+				geocoder = new google.maps.Geocoder();
+				
+				//window.alert(address);
+				
+				geocoder.geocode( { 'address': address}, function(results, status) {
+				  if (status == google.maps.GeocoderStatus.OK)
+				  {
+					count++;
+					lat = results[0].geometry.location.lat();
+					lon = results[0].geometry.location.lng();
+					newPlace = [address, lat, lon, count];
+
+					places.push(newPlace);
+					localStorage.setItem('places',  JSON.stringify(places));
+					
+					reloadMarkers();
+				  }
+				});
+				//window.alert("WORK PLEASE " + places);
+				reloadMarkers();
+			}
+
+			function initialize() {
+				
+				// Creates the map options
+				var mapOptions = {
+					zoom: 8,
+					center: new google.maps.LatLng(40.0583, -74.4057),
+					mapTypeId: google.maps.MapTypeId.TERRAIN
+				}
+				
+				// Create the initial map
+				map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+				//alert("THIS SUCKS");
+				if(JSON.parse(localStorage.getItem('places') == null)){
+					var places = [	
+						['Jersey', 40.0583,-74.4057, 4]
+					];
+					localStorage.setItem('places',  JSON.stringify(places));
+				}
+
+				// Bind event listener on button to reload markers
+				document.getElementById('Search').addEventListener('click', reloadMarkers);
+				document.getElementById('CountyName').addEventListener('submit', addGeoMarkerCount);
+				document.getElementById('CityName').addEventListener('submit', addGeoMarkerCit);
+				reloadMarkers();
+			}
+			
+			initialize();
+		</script>-->
+</html>
