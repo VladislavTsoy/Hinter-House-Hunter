@@ -575,7 +575,7 @@ while($row = mysqli_fetch_assoc($result)) {
             </div>
         </section>
 		
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFclVV6QDJlGXKM4CZ1FCRJwbAE9jrXjg"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key="></script>
 		
 		<script>
 			function init() {
